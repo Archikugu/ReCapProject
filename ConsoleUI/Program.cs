@@ -12,9 +12,12 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
+            carManager.Add(new Car {  BrandId = 1, ColorId = 2, ModelYear = 2020, DailyPrice = 450, Descriptions = "AUDI Q8 - White" });
+
+
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine(car.BrandId+" / "+car.ModelYear+" / "+car.DailyPrice+" / "+car.Descriptions);
+                Console.WriteLine(car.Id +" / "+car.BrandId+" / "+car.ModelYear+" / "+car.DailyPrice+" / "+car.Descriptions);
             }
         }
     }
