@@ -29,6 +29,18 @@ namespace Business.Concrete
             }
         }
 
+        public void Delete(Car car)
+        {
+            if (car.Descriptions.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Delete(car);
+            }
+            else
+            {
+                Console.WriteLine("product description must be more than 2 letters and daily price must be greater than 0");
+            }
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
