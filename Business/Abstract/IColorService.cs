@@ -1,14 +1,16 @@
 ﻿using Entities.Concrete;
-using Core.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstract
+namespace Business.Abstract
 {
-    public interface IBrandDal : IEntityRepository<Brand>
+    public interface IColorService
     {
+        List<Color> GetAll();
+        Color GetById(int colorId);
+        
     }
 }
