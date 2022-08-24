@@ -16,17 +16,21 @@ namespace ConsoleUI
             //carManager.Update(new Car { Id = 1025, BrandId = 1, ColorId = 6, ModelYear = 2020, DailyPrice = 450, Descriptions = "AUDI Q8 - Brown" });
             //carManager.Delete(new Car { Id = 1025, BrandId = 1, ColorId = 6, ModelYear = 2020, DailyPrice = 450, Descriptions = "AUDI Q8 - Brown" });
 
+            var result = carManager.GetAll();
 
+            if (result.Success)
+            {
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.Id + " / " + car.BrandId + " / " + car.ModelYear + " / " + car.DailyPrice + " / " + car.Descriptions);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
 
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.Id +" / "+car.BrandId+" / "+car.ModelYear+" / "+car.DailyPrice+" / "+car.Descriptions);
-            }
-            Console.WriteLine();
-            foreach (var car in carManager.GetCarDetails())
-            {
-                Console.WriteLine(car.CarId+" / "+car.BrandName);
-            }
+           
         }
     }
 }
