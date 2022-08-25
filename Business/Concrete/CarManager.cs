@@ -32,6 +32,17 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarAdded);
         }
 
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult();
+        }
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult();
+        }
+
         public IDataResult<List<Car>> GetAll()
         {
 
@@ -47,22 +58,24 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
-
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetById(int carId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(b => b.BrandId == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == carId));
+        }
+        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(b => b.BrandId == brandId));
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
         }
 
 
-        //public IDataResult<List<Car>> GetById(int carId)
-        //{
-        //    return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == carId));
-        //}
+
+
+
 
 
 
