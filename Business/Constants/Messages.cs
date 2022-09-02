@@ -18,10 +18,14 @@ namespace Business.Constants
         public static string CarAlreadyRented = "The car rental process failed, the selected car was rented";
         public static string RentalSuccesful = "The Car rental process is successful";
         public static string CouldNotCarAdded = "Could Not Car Added ";
+        public static string CarImageCountExceeded = "Car Image Count Exceeded ";
 
 
-
-
-
+        public static string ErrorMessage="Error !";
+        public static string ImageAdded="Image Added";
+        public static string ImageNotFound= "Image Not Found";
+        public static string ImageError= "Image Error";
+        public static string ImageUpdated= "Image Updated";
+        public static string ImageDeleted= "Image Deleted";
     }
 }
