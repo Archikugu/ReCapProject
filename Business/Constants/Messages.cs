@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,5 +29,14 @@ namespace Business.Constants
         public static string ImageError= "Image Error";
         public static string ImageUpdated= "Image Updated";
         public static string ImageDeleted= "Image Deleted";
+
+        public static string AuthorizationDenied = "You are not authorized";
+
+        public static string AccessTokenCreated = "AccessTokenCreated";
+        public static string UserNotFound = "UserNotFound";
+        public static string PasswordError = "PasswordError";
+        public static string SuccessfulLogin = "SuccessfulLogin";
+        public static string UserRegistered = "UserRegistered";
+        public static string UserAlreadyExists = "UserAlreadyExists";
     }
 }
