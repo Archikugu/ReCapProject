@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.DataAccess
+namespace DataAccess.Abstract
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
@@ -15,6 +15,5 @@ namespace Core.DataAccess
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
-
     }
 }

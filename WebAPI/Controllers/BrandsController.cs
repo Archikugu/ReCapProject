@@ -10,10 +10,31 @@ namespace WebAPI.Controllers
     public class BrandsController : ControllerBase
     {
         IBrandService _brandService;
-
         public BrandsController(IBrandService brandService)
         {
             _brandService = brandService;
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Brand brand)
+        {
+            var result = _brandService.Add(brand);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Brand brand)
+        {
+            var result = _brandService.Delete(brand);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpGet("getall")]
@@ -28,9 +49,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
-        public IActionResult GetById(int brandId)
+        public IActionResult GetById(int id)
         {
-            var result = _brandService.GetById(brandId);
+            var result = _brandService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,26 +59,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("add")]
-        public IActionResult Add(Brand brand)
-        {
-            var result = _brandService.Add(brand);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-        [HttpPost("delete")]
-        public IActionResult Delete(Brand brand)
-        {
-            var result = _brandService.Delete(brand);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
         [HttpPost("update")]
         public IActionResult Update(Brand brand)
         {

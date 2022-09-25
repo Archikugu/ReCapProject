@@ -15,14 +15,15 @@ namespace Core.Utilities.Security.JWT
 {
     public class JwtHelper : ITokenHelper
     {
+        // IConfiguration type helps us to read .json files.
         public IConfiguration Configuration { get; }
         private TokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
         public JwtHelper(IConfiguration configuration)
         {
             Configuration = configuration;
+            // The Get function might need Microsoft.Extensions.Configuration.Binder package from NuGet to work.
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
         }
         public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
         {
@@ -58,7 +59,6 @@ namespace Core.Utilities.Security.JWT
         private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)
         {
             var claims = new List<Claim>();
-
             claims.AddNameIdentifier(user.UserId.ToString());
             claims.AddEmail(user.Email);
             claims.AddName($"{user.FirstName} {user.LastName}");
